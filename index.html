@@ -19,9 +19,13 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYnJhY2tlZW4iLCJhIjoiY2psNnRodzVwMTlrNzNwcThjN
 var map = new mapboxgl.Map({
     container: 'map', // container id
     style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
-    center: [-106.600341796875, 35.05698043137265], // starting position [lng, lat]
+    center: [-106.600341796875,
+          35.05698043137265], // starting position [lng, lat]
     zoom: 9 // starting zoom
 });
+
+// Add zoom and rotation controls to the map.
+map.addControl(new mapboxgl.NavigationControl());
 </script>
 
 </body>
