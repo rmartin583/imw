@@ -80,6 +80,27 @@ var map = new mapboxgl.Map({
     
 });
 
+map.on('load', function() {
+  var layers = ['Less than 10,000', '10,000-50,000', '50,001-100,000', '100,001-150,000', '150,000+'];
+var colors = ['#FFEDA0', '#cfecd9', '#a0dab3', '#40b7c4', '#3195a0', '#253393'];
+for (i = 0; i < layers.length; i++) {
+  var layer = layers[i];
+  var color = colors[i];
+  var item = document.createElement('div');
+  var key = document.createElement('span');
+  key.className = 'legend-key';
+  key.style.backgroundColor = color;
+
+  var value = document.createElement('span');
+  value.innerHTML = layer;
+  item.appendChild(key);
+  item.appendChild(value);
+  legend.appendChild(item);
+}
+});
+
+
+
 // Add zoom and rotation controls to the map.
 map.addControl(new mapboxgl.NavigationControl());
 </script>
